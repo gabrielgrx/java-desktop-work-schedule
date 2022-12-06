@@ -89,6 +89,13 @@ public class PersonController implements Initializable {
             personTable.getItems().remove(selectedIndex);
         } else {
             buttonDelete.setDisable(false);
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Deletar pessoa");
+            alert.setHeaderText("Nenhuma pessoa selecionada");
+            alert.setContentText("Não foi possível deletar pois não há pessoas selecionadas na tabela.");
+
+            alert.showAndWait();
         }
         clearTextFields();
     }
@@ -101,6 +108,7 @@ public class PersonController implements Initializable {
                     nameTextField.getText(), telephoneNumber, emailTextField.getText());
             ;
             personTable.getItems().add(newPerson);
+            System.out.println(main.getPersonData());
         } else {
             buttonInsert.setDisable(false);
         }
